@@ -2,15 +2,16 @@
 
 ## 总览
 
-+ props(.async) 和 $emit [代码](./src/01)
-+ v-model [代码](./src/02)
-+ $root [代码](./src/03)
-+ provide 和 inject [代码](./src/04)
-+ $parent 和 $children [代码](./src/05)
-+ $refs [代码](./src/06)
-+ $emit 和 $on [代码](./src/07)
-+ 基于$emit 和 $on 封装的派发和广播 [代码](./src/08)
-+ $attrs 收集参数 [代码](./src/09)
++ props(.async) 和 $emit [代码](./src/views/01)
++ v-model [代码](./src/views/02)
++ $root [代码](./src/views/03)
++ provide 和 inject [代码](./src/views/04)
++ $parent 和 $children [代码](./src/views/05)
++ $refs [代码](./src/views/06)
++ $emit 和 $on [代码](./src/views/07)
++ 基于$emit 和 $on 封装的派发和广播 [代码](./src/views/08)
++ $attrs 收集参数 [代码](./src/views/09)
++ $listeners 收集 v-on 事件监听器 [代码](./src/views/10)
 
 
 ## props(.async) 和 $emit
