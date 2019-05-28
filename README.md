@@ -122,7 +122,7 @@ export default {
 
 事实上我们可以这样使用的原因就是 Vue.js 使用了订阅发布者模式实现了这 4 个方法，如果你感兴趣的话，甚至可以自己实现一个 eventBus。:smile:
 
-上面的写法需要在组件中一次又一次地导入 `eventBus` 模块，为了偷懒，我们可以把它定义在 Vue 的原型上：
+上面的写法需要在组件中一次又一次地导入 `eventBus` 模块，为了偷懒:stuck_out_tongue_closed_eyes:，我们可以把它定义在 Vue 的原型上：
 
 ```js
 // main.js
@@ -130,7 +130,7 @@ import Vue from 'vue'
 Vue.prototype.$bus = new Vue();
 ```
 
-这样一来就可以在组件中直接通过 `this.$bus` 来调用原来的 `eventBus` :stuck_out_tongue_closed_eyes:：
+这样一来就可以在组件中直接通过 `this.$bus` 来调用原来的 `eventBus` ：
 
 ```js
 export default {
