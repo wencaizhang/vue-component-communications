@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <demo1/>
+    <!-- <demo1/>
     <demo2/>
     <demo3/>
     <demo4/>
@@ -9,7 +9,8 @@
     <demo7/>
     <demo8/>
     <demo9/>
-    <demo10/>
+    <demo10/> -->
+    <demo11/>
   </div>
 </template>
 
@@ -24,6 +25,7 @@ import demo7 from "./07/parent";
 import demo8 from "./08/parent";
 import demo9 from "./09/parent";
 import demo10 from "./10/parent";
+import demo11 from "./11/parent";
 
 export default {
   name: "home",
@@ -38,6 +40,7 @@ export default {
     demo8,
     demo9,
     demo10,
+    demo11,
   },
   data() {
     return {
