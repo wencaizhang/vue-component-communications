@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <child2/>
+    <button @click="handleClick">按钮</button>
   </div>
 </template>
 
@@ -12,6 +13,11 @@ export default {
   name: "child1-11",
   components: {
     child2
+  },
+  methods: {
+    handleClick() {
+      this.$emit('test', 'a', 'b', 'c')
+    }
   },
   mounted() {
     eventBus.$on("fromParent", v => {

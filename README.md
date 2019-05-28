@@ -21,9 +21,8 @@
 1. [$refs](#$refs)
 1. [$emit 和 $on](#$emit和$on)
 1. [基于$emit和$on封装的派发和广播](#基于$emit和$on封装的派发和广播)
-
 1. [eventBus](#eventBus)
-1. vuex
+1. [vuex](#vuex)
 
 ## vm.$root [代码](./src/views/03)
 
@@ -38,7 +37,28 @@ vm.$children: 当前实例的直接子组件。**需要注意 $children 并不�
 
 ## vm.$attrs [代码](./src/views/09)
 
-包含了父作用域中不作为 `prop` 被识别 (且获取) 的特性绑定 (`class` 和 `style` 除外)。当一个组件没有声明任何 `prop` 时，这里会包含所有父作用域的绑定 (`class` 和 `style` 除外)，并且可以通过 `v-bind="$attrs"` 传入内部组件——在创建高级别的组件时非常有用。
+> 包含了父作用域中不作为 `prop` 被识别 (且获取) 的特性绑定 (`class` 和 `style` 除外)。当一个组件没有声明任何 `prop` 时，这里会包含所有父作用域的绑定 (`class` 和 `style` 除外)，并且可以通过 `v-bind="$attrs"` 传入内部组件——在创建高级别的组件时非常有用。
+
+我们知道通过 `v-bind` 可以向一个子组件传递数据：
+
+```html
+<blog-post title="My journey with Vue"></blog-post>
+<blog-post title="Blogging with Vue"></blog-post>
+<blog-post title="Why Vue is so fun"></blog-post>
+```
+
+同时子组件需要通过内部的 `props` 选项来接收（注册）父组件传递的数据：
+
+```js
+Vue.component('blog-post', {
+  props: ['title'],
+  template: '<h3>{{ title }}</h3>'
+})
+```
+
+这样就形成了一个闭环：我（父组件）通过 `v-bind` 传递给你（子组件）一些数据（prop），你通过 `props` 选项接收数据。
+
+
 
 ## vm.listeners [代码](./src/views/10)
 
@@ -150,3 +170,8 @@ export default {
   }
 };
 ```
+
+## vuex
+
+vuex 文档地址：[https://vuex.vuejs.org/zh/](https://vuex.vuejs.org/zh/)
+
