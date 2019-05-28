@@ -8,39 +8,39 @@
 
 **可以直接通过实例调用**
 
-+ [vm.$root](#vm.$root) [代码](./src/views/03)
-+ [vm.$parent 和 vm.$children](#vm.$parent和vm.$children) [代码](./src/views/05)
-+ [$attrs 收集参数](#vm.attrs) [代码](./src/views/09)
-+ [vm.listeners 收集 v-on 事件监听器](#vm.listeners) [代码](./src/views/10)
+1. [vm.$root](#vm.$root)
+1. [vm.$parent 和 vm.$children](#vm.$parent和vm.$children)
+1. [$attrs 收集参数](#vm.attrs)
+1. [vm.listeners 收集 v-on 事件监听器](#vm.listeners)
 
 **需要额外代码才可以使用**
 
-+ props(.async) 和 $emit [代码](./src/views/01)
-+ v-model [代码](./src/views/02)
-+ provide 和 inject [代码](./src/views/04)
-+ $refs [代码](./src/views/06)
-+ $emit 和 $on [代码](./src/views/07)
-+ 基于 $emit 和 $on 封装的派发和广播 [代码](./src/views/08)
+1. [props(.async)和$emit](#props(.async)和$emit)
+1. [v-model](#v-model)
+1. [provide和inject](#provide和inject)
+1. [$refs](#$refs)
+1. [$emit 和 $on](#$emit和$on)
+1. [基于$emit和$on封装的派发和广播](#基于$emit和$on封装的派发和广播)
 
-+ [eventBus](#eventBus) [代码](./src/views/11)
-+ vuex
+1. [eventBus](#eventBus)
+1. vuex
 
-## vm.$root
+## vm.$root [代码](./src/views/03)
 
 当前组件树的根 Vue 实例。如果当前实例没有父实例，此实例将会是其自己。
 
 真正的根组件并不是 App.vue，而是 main.js 中的 new Vue()。
 
-## vm.$parent和vm.$children
+## vm.$parent和vm.$children [代码](./src/views/05)
 
 vm.$parent: 当前组件的父实例，如果当前实例有的话
 vm.$children: 当前实例的直接子组件。**需要注意 $children 并不保证顺序，也不是响应式的**。如果你发现自己正在尝试使用 $children 来进行数据绑定，考虑使用一个数组配合 `v-for` 来生成子组件，并且使用 `Array` 作为真正的来源。
 
-## vm.$attrs
+## vm.$attrs [代码](./src/views/09)
 
 包含了父作用域中不作为 `prop` 被识别 (且获取) 的特性绑定 (`class` 和 `style` 除外)。当一个组件没有声明任何 `prop` 时，这里会包含所有父作用域的绑定 (`class` 和 `style` 除外)，并且可以通过 `v-bind="$attrs"` 传入内部组件——在创建高级别的组件时非常有用。
 
-## vm.listeners
+## vm.listeners [代码](./src/views/10)
 
 包含了父作用域中的 (不含 `.native` 修饰器的) `v-on` 事件监听器。它可以通过 `v-on="$listeners"` 传入内部组件——在创建更高层次的组件时非常有用。
 
@@ -72,11 +72,21 @@ this.$emit('update:title', newTitle)
 
 + [.sync 修饰符](https://cn.vuejs.org/v2/guide/components-custom-events.html#sync-%E4%BF%AE%E9%A5%B0%E7%AC%A6)
 
+## props(.async)和$emit [代码](./src/views/01)
 
+## v-model [代码](./src/views/02)
 
-## eventBus
+## $emit和$on [代码](./src/views/07)
 
-新建一个 `event.js` 文件，创建一个 Vue 的实例。
+## provide和inject [代码](./src/views/04)
+
+## $refs [代码](./src/views/06)
+
+## 基于$emit和$on封装的派发和广播) [代码](./src/views/08)
+
+## eventBus [代码](./src/views/11)
+
+新建一个 `utils/eventBus.js` 文件，创建一个 Vue 的实例。
 
 ```js
 import Vue from 'vue'
@@ -113,7 +123,7 @@ export default {
 
 事实上，可以在同一个组件内触发和监听同一个事件，只是这么做的意义不大。:joy:
 
-`eventBus` 有下面 4 个方法，详情参考[文档](https://cn.vuejs.org/v2/api/#%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95-%E4%BA%8B%E4%BB%B6)，
+`eventBus` 有下面 4 个方法，详情参考文档中[实例方法 / 事件](https://cn.vuejs.org/v2/api/#%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95-%E4%BA%8B%E4%BB%B6)章节。
 
 + `eventBus.$on( event, callback );`
 + `eventBus.$once( event, callback );`
