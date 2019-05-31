@@ -4,17 +4,10 @@
 
 ## 总览
 
-根据**是否需要开发者书写额外代码**这一标准，我将它们分为两大类：
-
-**可以直接通过实例调用**
-
 1. [vm.$root](#vmroot)
 1. [vm.$parent 和 vm.$children](#vmparent和vmchildren)
 1. [$attrs 收集参数](#vmattrs)
 1. [vm.listeners 收集 v-on 事件监听器](#vmlisteners)
-
-**需要额外代码才可以使用**
-
 1. [props(.async)和$emit](#props(.async)和$emit)
 1. [v-model](#v-model)
 1. [provide和inject](#provide和inject)
